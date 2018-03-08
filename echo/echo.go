@@ -1,11 +1,11 @@
 package echo
 
-import (
-	"fmt"
-	"os"
-	"strings"
-)
+func NewEchoer() Echoer {
+	return &simpleEchoer{}
+}
 
-func Echo(in string) string {
-	fmt.Println(strings.Join(os.Args[1:], " "))
+type simpleEchoer struct{}
+
+func (e *simpleEchoer) Echo(in string) string {
+	return in
 }
